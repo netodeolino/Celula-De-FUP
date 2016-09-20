@@ -66,7 +66,6 @@ int main(){
 
     int carta = sortear_carta();
     int valor = pegar_valor(carta);
-
     mao_mesa.push_back(valor);
 
     mao_jogador.push_back(pegar_valor(sortear_carta()));
@@ -81,7 +80,7 @@ int main(){
         cin >> opcao;
 
         if(opcao == 1){
-            mao_jogador.push_back(sortear_carta());
+            mao_jogador.push_back(pegar_valor(sortear_carta()));
         }else{
             parar = true;
         }
@@ -90,8 +89,8 @@ int main(){
             cout << "MESA GANHOU" << endl;
             exit(0);
         }
-
     }
+
     while(valor_mao(mao_mesa) < valor_mao(mao_jogador)){
         mao_mesa.push_back(pegar_valor(sortear_carta()));
         cout << "MÃOS MESA" << endl;
