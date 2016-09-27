@@ -88,6 +88,7 @@ float serie1(float n){
 int MDC(int a, int b)
 {
 	begin();
+	
 	return 0;
 }
 
