@@ -22,7 +22,7 @@ struct numeros
 };
 
 int soma(numeros n){
-    return n.a + n.b;
+    return  n.a + n.b ;
 }
 
 //CE
@@ -38,8 +38,9 @@ T*/
 int maiorNumero(numeros n){
 	if(n.a > n.b){
 		return n.a;
+	}else{
+		return n.b;
 	}
-    return n.b;
 }
 //CE
 
@@ -59,7 +60,14 @@ struct vetor
 };
 
 int maiorElemento(vetor a){
-    return 0;
+	int jumento;
+	jumento = a.v[0];
+	for(int i = 1; i < a.tamanho; i++){
+		if(a.v[i] > jumento){
+			jumento = a.v[i];
+		}
+	}
+    return jumento;
 }
 //CE
 
@@ -198,6 +206,7 @@ T*/
 
 //CB
 int maisVelho(data d1, data d2){
+	
     return 0;
 }
 //CE
@@ -248,6 +257,8 @@ struct personagem
 
 personagem criarPersonagem(int vida, int ataque){
 	personagem p;
+	p.vida = vida;
+	p.ataque = ataque;
 	return p;
 }
 //CE
