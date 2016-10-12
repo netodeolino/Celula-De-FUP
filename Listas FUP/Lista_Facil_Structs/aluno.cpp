@@ -206,7 +206,27 @@ T*/
 
 //CB
 int maisVelho(data d1, data d2){
-	
+	if(d1.ano < d2.ano){
+        return 1;
+    }
+    else if(d1.ano > d2.ano){
+        return -1;
+    }
+    else if(d1.ano == d2.ano && d1.mes < d2.mes){
+        return 1;
+    }
+    else if(d1.ano == d2.ano && d1.mes > d2.mes){
+        return -1;
+    }
+    else if(d1.ano == d2.ano && d1.mes == d2.mes && d1.dia < d2.dia){
+        return 1;
+    }
+    else if(d1.ano == d2.ano && d1.mes == d2.mes && d1.dia > d2.dia){
+        return -1;
+    }
+    else{
+        return 0;
+    }
     return 0;
 }
 //CE
