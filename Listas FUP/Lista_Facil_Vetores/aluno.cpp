@@ -79,6 +79,9 @@ T*/
 
 //AB
 	void copiar(int v1[], int v2[], int tam) {
+		for(int i = 0; i < tam; i++){
+			v2[i] = v1[i];
+		}
 	}
 //AE
 
@@ -94,7 +97,11 @@ T*/
 
 //AB
 	int soma_elementos(int v[], int tam) {
-        return 0;
+		int s = 0;
+		for(int i = 0; i < tam; i++){
+			s += v[i];
+		}
+        return s;
 	}
 //AE
 
@@ -145,6 +152,16 @@ T*/
 
 //AB
 	bool sao_iguais(int v1[], int tam1, int v2[], int tam2) {
+		if(tam1 != tam2){
+			return false;
+		}
+		else{
+			for(int i = 0; i < tam2; i++){
+				if(v1[i] != v2[i]){
+					return false;
+				}
+			}
+		}	
 		return true;
 	}
 //AE
