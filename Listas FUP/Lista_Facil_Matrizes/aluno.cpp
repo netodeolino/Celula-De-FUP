@@ -17,7 +17,9 @@ T*/
 //CB
 void preenche_matriz(int mat[20][20])
 {
-
+for(int l = 0; l < 20; l++)
+	for(int c = 0; c < 20; c++)
+		mat[l][c] = 1;
 }
 //CE
 
@@ -29,7 +31,17 @@ T*/
 //CB
 void preenche_matriz_um_e_zero(int mat[20][20])
 {
-
+	for(int l = 0; l < 20; l++){
+		for(int c = 0; c < 20; c++){
+			mat[0][c] = 1;
+			if((l % 2) == 0){
+				mat[l][c] = 1;
+			}
+			else{
+				mat[l][c] = 0;
+			}
+		}
+	}	
 }
 //CE
 
@@ -41,7 +53,12 @@ T*/
 //CB
 void preenche_matriz_diagonal_principal(int mat[20][20])
 {
-
+	for(int l = 0; l < 20; l++)
+		for(int c = 0; c < 20; c++)
+			if(c == l)
+				mat[l][c] = 1;
+			else
+				mat[l][c] = 0;
 }
 //CE
 
@@ -52,10 +69,15 @@ Receba uma matriz 4x4 e retorne o maior valor.
 T*/
 //CB
 
-int maior_valor_matriz(int matriz[4][4])
+int maior_valor_matriz(int mat[4][4])
 {
-
-	return 0;
+	int maior = mat[0][0];
+	for(int l = 0; l < 4; l++)
+		for(int c = 0; c < 4; c++)
+			if(mat[l][c] > maior)
+				maior = mat[l][c];
+				
+	return maior;
 }
 //CE
 
@@ -66,9 +88,13 @@ Receba uma matriz 4x4, conte e retorne quantos valores maiores que 10 ela possui
 T*/
 //CB
 int qtd_maiores_elementos(int matriz[4][4])
-{
-
-    return 0;
+{	
+	int cont = 0;
+	for(int l = 0; l < 4; l++)
+		for(int c = 0; c < 4; c++)
+			if(matriz[l][c] > 10)
+				cont++;
+    return cont;
 }
 //CE
 
@@ -80,7 +106,19 @@ obs:A primeira linha e a primeira coluna possuem índices iguais a zero.
  T*/
 //CB
 void menor_cade_voce(int mat[4][4], int &linha, int &coluna, int &valor)
-{
+{	
+	int lin, col = -1;
+	int menor = mat[0][0];
+	for(int l = 0; l < 4; l++)
+		for(int c = 0; c < 4; c++)
+			if(mat[l][c] < menor){
+				menor = mat[l][c];
+				lin = l;
+				col = c;
+			}
+	linha = lin;
+	coluna = col;
+	valor = menor;
 
 }
 //CE
@@ -93,6 +131,18 @@ obs:A primeira linha e a primeira coluna possuem índices iguais a zero.
 //CB
 void maior_cade_voce(int mat[4][4], int &linha, int &coluna, int &valor)
 {
+	int lin, col = 0;
+	int maior = mat[0][0];
+	for(int l = 0; l < 4; l++)
+		for(int c = 0; c < 4; c++)
+			if(mat[l][c] > maior){
+				maior = mat[l][c];
+				lin = l;
+				col = c;
+			}
+	linha = lin;
+	coluna = col;
+	valor = maior;
 
 }
 //CE
@@ -104,8 +154,13 @@ Somar todos os elementos da matriz 3x3 passada
  T*/
 //CB
 int somar_todos(int matriz[3][3])
-{
-return 0;
+{	
+	int s = 0;
+	for(int l = 0; l < 3; l++)
+		for(int c = 0; c < 3; c++){
+			s += matriz[l][c];
+		}
+	return s;
 }
 //CE
 
@@ -118,6 +173,18 @@ Receba uma matriz 4 x 4 e troque os valores da 1ª linha pelos da 4ª linha, vic
 //CB
 void troca_valores(int matriz[4][4])
 {
+	int aux[4];
+	for(int l = 0; l < 4; l++)
+		for(int c = 0; c < 4; c++){
+			if(l == 0){
+				aux[c] = matriz[0][c];
+			}
+			if(l == 3){
+				matriz[0][c] = matriz[3][c];
+				matriz[3][c] = aux[c];
+			}
+			
+		}
 }
 //CE
 
@@ -128,9 +195,14 @@ Verifique se uma matriz e simetrica.
 OBS:Lembre que uma matriz M é simétrica é aquela onde M[linha,coluna] = M[coluna,linha].
  T*/
 //CB
-bool matriz_simetrica(int matriz[3][3])
-{
-return false;
+bool matriz_simetrica(int matriz[3][3]){
+	for(int l = 0; l < 3; l++)
+		for(int c = 0; c < 3; c++){
+			if(matriz[l][c] != matriz[c][l]){
+				return false;
+			}
+		}
+	return true;
 }
 //CE
 
